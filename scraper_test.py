@@ -45,8 +45,13 @@ def scrape_maya(number, name, subject):
     print(financial_data)
     financial_data = pd.DataFrame(financial_data)
     print(financial_data)
-    financial_data.to_csv('financial_data.csv', mode='a', header=False, index=False)
 
+    if os.path.exists('financial_data.csv'):
+
+        financial_data.to_csv('financial_data.csv', mode='a', header=False, index=False)
+
+    else:
+        financial_data.to_csv('financial_data.csv', mode='a', header=True, index=False)
     # financial_data.to_excel('financial_data.xlsx')
 
 
